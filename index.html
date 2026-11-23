@@ -34,8 +34,22 @@ button:hover{transform:translateY(-2px);background:#f3d1dc}
 #reveal.show{display:block}
 @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 .bouquet-frame{margin:8px auto 22px;width:min(100%,430px);min-height:250px;display:grid;place-items:center}
-.bouquet-frame img{display:block;width:100%;max-height:390px;object-fit:contain;filter:drop-shadow(0 16px 22px #09060c66)}
-.fallback{display:none;color:#e7b6c9;font-size:13px;line-height:1.7;padding:25px;border:1px dashed #9f7188;border-radius:14px}
+.bouquet-frame {
+    margin: 8px auto 22px;
+    width: min(100%, 520px);
+    min-height: 330px;
+    display: grid;
+    place-items: center;
+}
+
+.bouquet-frame img {
+    display: block;
+    width: 135%;
+    max-width: none;
+    max-height: 520px;
+    object-fit: contain;
+    filter: drop-shadow(0 16px 22px #09060c66);
+}.fallback{display:none;color:#e7b6c9;font-size:13px;line-height:1.7;padding:25px;border:1px dashed #9f7188;border-radius:14px}
 .final-line{font:600 clamp(27px,6vw,38px) 'Dancing Script',cursive;color:#ffe8ee;margin:8px 0 6px}
 .heart{color:#e7a9bd;font-size:22px}
 .letter-btn{margin-top:22px;background:transparent;color:#f3d9e3}
