@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#160f20">
+<title>For Coleen ♡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#160f20;--cream:#f7e9d7;--pink:#e7a9bd;--muted:#bba9b9}
+*{box-sizing:border-box}
+body{margin:0;min-height:100svh;background:radial-gradient(ellipse at 50% 40%,#39223d 0%,#201426 45%,#120d19 100%);color:var(--cream);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+main{min-height:100svh;display:grid;place-items:center;padding:28px 18px;position:relative}
+.stars{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.star{position:absolute;color:#f5d5e1;opacity:.55;animation:twinkle 3s ease-in-out infinite alternate}
+@keyframes twinkle{from{opacity:.15;transform:scale(.7)}to{opacity:.8;transform:scale(1.2)}}
+.scene{width:min(100%,560px);text-align:center;position:relative;z-index:1}
+.eyebrow{font:11px 'DM Mono',monospace;letter-spacing:.28em;color:#d5b9c9;text-transform:uppercase;margin-bottom:28px}
+.envelope-wrap{height:300px;display:grid;place-items:center;perspective:900px}
+.envelope{width:min(330px,82vw);height:210px;position:relative;filter:drop-shadow(0 22px 28px #09060c88);transition:transform .7s}
+.env-back{position:absolute;inset:0;background:#c58fa5;border-radius:7px}
+.env-front{position:absolute;inset:0;background:linear-gradient(145deg,#f0c8d4,#dba7bb);clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);border-radius:7px}
+.env-flap{position:absolute;inset:0;background:#e9b9c9;clip-path:polygon(0 0,100% 0,50% 58%);transform-origin:top;transition:transform .8s;z-index:2}
+.seal{position:absolute;z-index:3;left:50%;top:58%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#9f526f;color:#fbe8ed;display:grid;place-items:center;font-size:22px;box-shadow:0 3px 10px #74445a66}
+.envelope.open .env-flap{transform:rotateX(180deg);z-index:0}
+.envelope.open{transform:translateY(10px) scale(.96)}
+.name{font:600 34px 'Dancing Script',cursive;color:#fff0e7;margin:0 0 8px}
+.sub{font-size:13px;color:var(--muted);letter-spacing:.04em;margin:0 0 25px}
+button{border:1px solid #e7b6c9;background:#e7b6c9;color:#2a1724;border-radius:999px;padding:13px 31px;font:500 11px 'DM Mono',monospace;letter-spacing:.18em;cursor:pointer;transition:.2s}
+button:hover{transform:translateY(-2px);background:#f3d1dc}
+#reveal{display:none;animation:rise 1s ease both}
+#reveal.show{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.bouquet-frame{margin:8px auto 22px;width:min(100%,430px);min-height:250px;display:grid;place-items:center}
+.bouquet-frame img{display:block;width:100%;max-height:390px;object-fit:contain;filter:drop-shadow(0 16px 22px #09060c66)}
+.fallback{display:none;color:#e7b6c9;font-size:13px;line-height:1.7;padding:25px;border:1px dashed #9f7188;border-radius:14px}
+.final-line{font:600 clamp(27px,6vw,38px) 'Dancing Script',cursive;color:#ffe8ee;margin:8px 0 6px}
+.heart{color:#e7a9bd;font-size:22px}
+.letter-btn{margin-top:22px;background:transparent;color:#f3d9e3}
+footer{font:10px 'DM Mono',monospace;letter-spacing:.1em;color:#927f91;margin-top:34px}
+.modal{position:fixed;inset:0;background:#08060dcc;display:none;place-items:center;padding:18px;z-index:10}
+.modal.show{display:grid}
+.paper{width:min(100%,510px);max-height:85svh;overflow:auto;background:#f4e6d8;color:#493642;padding:clamp(25px,6vw,42px);border-radius:5px;box-shadow:0 25px 80px #0009;text-align:left;position:relative}
+.paper h2{font:600 34px 'Dancing Script',cursive;margin:0 0 20px;color:#985b76}
+.paper p{font-size:14px;line-height:1.85;white-space:pre-line}
+.signature{font:600 23px 'Dancing Script',cursive;color:#985b76;margin-top:25px}
+.close{position:sticky;float:right;top:0;border:0;background:#e5c8d2;padding:8px 13px;letter-spacing:0}
+@media(max-width:420px){.envelope-wrap{height:260px}.envelope{height:180px}.name{font-size:31px}}
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+<main>
+<section class="scene">
+<div class="eyebrow">a little something, just for you</div>
+<div id="intro">
+  <div class="envelope-wrap">
+    <div class="envelope" id="envelope">
+      <div class="env-back"></div><div class="env-flap"></div><div class="env-front"></div>
+      <div class="seal">♡</div>
+    </div>
+  </div>
+  <h1 class="name">For Coleen</h1>
+  <p class="sub">A little bouquet, from my world to yours.</p>
+  <button id="openBtn">OPEN</button>
+</div>
+<div id="reveal">
+  <div class="bouquet-frame">
+    <img src="bouquet.png" alt="A bouquet for Coleen" id="bouquet">
+    <div class="fallback" id="fallback">Your bouquet image will appear here.<br>Put the original image in this folder and name it <b>bouquet.png</b>.</div>
+  </div>
+  <div class="final-line">Happy to have you in my little world.</div>
+  <div class="heart">♡</div>
+  <button class="letter-btn" id="letterBtn">A LITTLE LETTER FOR YOU</button>
+</div>
+<footer>MADE WITH A LITTLE BIT OF COURAGE & A LOT OF HEART</footer>
+</section>
+</main>
+<div class="modal" id="modal">
+  <article class="paper">
+    <button class="close" id="closeBtn">CLOSE ✕</button>
+    <h2>Dear Coleen,</h2>
+    <p>I know we're miles apart, with a whole sea between us,
+but I still wanted to send you a little something.
+
+I made this bouquet hoping it could bring a smile to your
+face, even if I can't hand it to you in person.
+
+I don't know what the future holds, and I don't think
+we need to figure everything out right now.
+
+For now, I'm just glad our paths crossed, and I hope
+we get to make more little memories along the way.
+
+Until then, take care of yourself, eat well, get enough
+rest, and don't forget to smile.</p>
+    <div class="signature">A little piece of my world, finding its way to yours.</div>
+  </article>
+</div>
+<script>
+const stars=document.getElementById('stars');
+for(let i=0;i<34;i++){const s=document.createElement('span');s.className='star';s.textContent=Math.random()>.5?'✦':'·';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.fontSize=(8+Math.random()*12)+'px';s.style.animationDelay=(Math.random()*3)+'s';stars.appendChild(s)}
+document.getElementById('openBtn').addEventListener('click',()=>{
+ document.getElementById('envelope').classList.add('open');
+ setTimeout(()=>{document.getElementById('intro').style.display='none';document.getElementById('reveal').classList.add('show')},650);
+});
+const bouquet=document.getElementById('bouquet');
+bouquet.addEventListener('error',()=>{bouquet.style.display='none';document.getElementById('fallback').style.display='block'});
+document.getElementById('letterBtn').addEventListener('click',()=>document.getElementById('modal').classList.add('show'));
+document.getElementById('closeBtn').addEventListener('click',()=>document.getElementById('modal').classList.remove('show'));
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')e.currentTarget.classList.remove('show')});
+</script>
+</body>
+</html>
